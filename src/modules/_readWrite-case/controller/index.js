@@ -30,7 +30,7 @@ class readWriteController {
     ctx.response.body = {
       'response': '执行写入',
       'writeData': ctx.query.writeData || '您还未写入任何信息,请通过 url param writeData 属性上传您要写入的字符'
-    } 
+    }
   }
   /**
    * [readStream 读取文件]
@@ -45,7 +45,7 @@ class readWriteController {
     const data = fs.existsSync(_path1) && fs.readFileSync(_path1)
     const _data = data && JSON.parse(data.toString()) || {'response': '文件不存在'}
 
-    ctx.response.body = _data 
+    ctx.response.body = _data
   }
   /**
    * [deleteFile 删除文件]

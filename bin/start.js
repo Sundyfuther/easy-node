@@ -6,13 +6,9 @@ var PRD_ENV = process.env.NODE_ENV === 'production'
 var DR_ENV = process.env.NODE_ENV === 'dr'
 // import a from 'pm2'
 
-  if (DEV_ENV || TEST_ENV) {
-    devStart()
-  } else if (PRD_ENV || DR_ENV) {
-    prdStart()
-  }
-
-
-
-
+if (DEV_ENV || TEST_ENV) {
+  devStart()
+} else if (PRD_ENV || DR_ENV) {
+  prdStart()
+}
 

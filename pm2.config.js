@@ -1,15 +1,14 @@
 const $HOME = require('os').homedir()
+const dr = process.argv.includes('--env') && process.argv.includes('dr')
+const prd = process.argv.includes('--env') && process.argv.includes('prd')
+const test = process.argv.includes('--env') && process.argv.includes('test')
+const dev = !process.argv.includes('--env')
 
 module.exports = (function () {
   /**
    * Application configuration section
    * http://pm2.keymetrics.io/docs/usage/application-declaration/
    */
-
-  const dr = process.argv.includes('--env') && process.argv.includes('dr')
-  const prd = process.argv.includes('--env') && process.argv.includes('prd')
-  const test = process.argv.includes('--env') && process.argv.includes('test')
-  const dev = !process.argv.includes('--env')
 
   return {
     apps: [
@@ -41,15 +40,19 @@ module.exports = (function () {
         ],
         env: {
           NODE_ENV: 'development',
-          PORT: '7799'
+          PORT: '7709'
         },
         env_test: {
           NODE_ENV: 'test',
-          PORT: '7799'
+          PORT: '7709'
         },
         env_prd: {
           NODE_ENV: 'production',
-          PORT: '7799'
+          PORT: '7709'
+        },
+        env_dr: {
+          NODE_ENV: 'dr',
+          PORT: '7709'
         }
       }
     ]

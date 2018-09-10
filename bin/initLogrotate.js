@@ -5,10 +5,7 @@ var chalk = require('chalk')
 var pm2LogrotatePath = `${$HOME}/.pm2/modules/pm2-logrotate`
 
 if (!fs.existsSync(pm2LogrotatePath)) {
-  console.log(
-     chalk.bold.green('[PM2][Module] ') + 'Calling ' + chalk.bold.red('[NPM]') + ' to install pm2-logrotate...'
-  )
-
+  console.log(chalk.bold.green('[init] ') + 'module ' + chalk.bold.green('pm2-logrotate'))
   var instalInstance = spawn('npm', ['run', 'i:log'], {
     stdio: 'inherit',
     env: process.env,
@@ -17,8 +14,7 @@ if (!fs.existsSync(pm2LogrotatePath)) {
 
   instalInstance.on('close', () => {
     var files = fs.readdirSync(pm2LogrotatePath)
-    console.log('Module successfully installed and launched')
-    console.log(chalk.bold.green(files))
+    console.log('check files ' + chalk.bold.green('pm2-logrotate: ') + chalk.bold.green(files))
   })
 
   instalInstance.on('error', function (err) {
