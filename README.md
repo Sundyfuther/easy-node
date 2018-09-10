@@ -26,7 +26,7 @@ npx enode-cli <folder name>
 npm install
 npm start
 ```
-然后通过http://127.0.0.1:7709/访问本地服务即可
+然后通过 [http://localhost:7709/](http://localhost:7709/) 访问本地服务即可
 
 ## Npm scripts
 
