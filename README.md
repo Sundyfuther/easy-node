@@ -5,7 +5,7 @@
 
 可以直接在项目里使用 ES6/7（Generator Function, Class, Async & Await）等特性，借助 Babel 编译，可稳定运行在 Node.js 环境上。
 
-## init
+## Init
 
 通过 npx 命令自动生成脚手架
 
