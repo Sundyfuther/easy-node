@@ -20,6 +20,8 @@ npx enode-cli <folder name>
 
 ## Getting Start
 
+进入脚手架目录执行:
+
 ``` bash
 npm install
 npm start
