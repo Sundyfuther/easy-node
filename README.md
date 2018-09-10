@@ -15,7 +15,7 @@ npm start
 
 ## Npm scripts
 
-1、启动进程（测试、生产、灾备模式的启动命令，用于提供给运维人员进行不同环境的部署）
+#### 1、启动进程（测试、生产、灾备模式的启动命令，用于提供给运维人员进行不同环境的部署）
 
 ```bash
 $ npm start           # 开发模式
@@ -24,19 +24,19 @@ $ npm run start:prd   # 生产模式
 $ npm run start:dr    # 灾备模式
 ```
 
-2、停止进程
+#### 2、停止进程
 
 ```bash
 $ npm run stop
 ```
 
-3、查看运行日志（所有console可以在这里看到）
+#### 3、查看运行日志（所有console可以在这里看到）
 
 ```bash
 $ npm run logs
 ```
 
-4、其他命令说明
+#### 4、其他命令说明
 
 ```bash
 $ npm run ls          # 查看进程列表
@@ -55,42 +55,42 @@ $ npm run compile     # 编译
 
 ## 日志管理
 
-* 日志默认存放于用户目录 ``$HOME/app-logs/outerr.log``；
+#### 日志默认存放于用户目录 ``$HOME/app-logs/outerr.log``；
 
-* 项目首次部署会自动通过 npm install 安装日志切割插件 pm2-logrotate（防止日积月累，日志文件越来越大所以需要切割）, 若 npm 不通请使用代理；
+#### 项目首次部署会自动通过 npm install 安装日志切割插件 pm2-logrotate（防止日积月累，日志文件越来越大所以需要切割）, 若 npm 不通请使用代理；
 
-* pm2-logrotate 默认配置：
-  > 日志单个文件限制大小为 10M, 超过则被切割
-  > 日志文件数限制 30 个, 超过则被删除
-  > 切割出来的日志文件命名格式为 'outerr__YYYY-MM-DD_HH-mm-ss.log' 
-  > 日志会在每日凌晨 0 点 0 分 根据上一条命名规则执行切割
+#### pm2-logrotate 默认配置：
+* 日志单个文件限制大小为 10M, 超过则被切割
+* 日志文件数限制 30 个, 超过则被删除
+* 切割出来的日志文件命名格式为 'outerr__YYYY-MM-DD_HH-mm-ss.log' 
+* 日志会在每日凌晨 0 点 0 分 根据上一条命名规则执行切割
 
 ## 启动配置说明
 
-* 启动配置文件为存放于项目目录下的``pm2.config.js``文件；
+#### 启动配置文件为存放于项目目录下的``pm2.config.js``文件；
 
-* 配置文件中声明变量说明：
+#### 配置文件中声明变量说明：
 
-> ``$HOME``: 服务器用户目录
-> ``dr``: 灾备环境时为 ``true``
-> ``prd``: 生产环境时为 ``true``
-> ``test``: 测试环境时为 ``true``
-> ``dev``: 开发环境时为 ``true``
+* ``$HOME``: 服务器用户目录
+* ``dr``: 灾备环境时为 ``true``
+* ``prd``: 生产环境时为 ``true``
+* ``test``: 测试环境时为 ``true``
+* ``dev``: 开发环境时为 ``true``
 
-* 配置文件配置说明：
+#### 配置文件配置说明：
 
-> ``apps`` : 需要启动的应用列表
-> ``name`` : 应用名称
-> ``instances``: 进程数量
-> ``log``: 日志存放路径
-> ``env``: 开发环境变量
-> ``env_test``: 测试环境变量
-> ``env_prd``: 生产环境变量
-> ``env_dr``: 灾备环境变量
+* ``apps`` : 需要启动的应用列表
+* ``name`` : 应用名称
+* ``instances``: 进程数量
+* ``log``: 日志存放路径
+* ``env``: 开发环境变量
+* ``env_test``: 测试环境变量
+* ``env_prd``: 生产环境变量
+* ``env_dr``: 灾备环境变量
 
 [更多配置属性请查看官方中文文档](https://pm2.io/doc/zh/runtime/reference/ecosystem-file/)
 
-* 环境变量说明：
+#### 环境变量说明：
 
 环境变量属性内部配置的任意属性，都能在应用中通过``process.env``对象访问
 
@@ -112,8 +112,8 @@ $ npm run compile     # 编译
       }
 ```
 如上配置：
-当使用开发模式启动，process.env.HOST === 'www.development.com' 。
-当使用生产模式启动，process.env.HOST === 'www.production.com' 。
+* 当使用开发模式启动，process.env.HOST === 'www.development.com' 。
+* 当使用生产模式启动，process.env.HOST === 'www.production.com' 。
 
 ## 目录结构说明
 
