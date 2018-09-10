@@ -2,7 +2,6 @@
 # easy-node
 基于 Koa2 & pm2 的脚手架
 
-------
 
 可以直接在项目里使用 ES6/7（Generator Function, Class, Async & Await）等特性，借助 Babel 编译，可稳定运行在 Node.js 环境上。
 
@@ -53,6 +52,17 @@ $ npm run compile # 编译
 该脚手架进程管理使用pm2，所有 pm2 命令需要在 package.json 的 scripts 属性中配置，后使用 npm run xxx 执行；
 
 [更多 pm2 命令请查看官方中文文档](https://pm2.io/doc/zh/runtime/overview/)
+
+## 日志管理
+
+* 日志默认存放于用户目录``$HOME/app-logs/outerr.log``；
+* 项目首次部署会自动通过 npm install 安装日志切割插件 pm2-logrotate（防止日积月累，日志文件越来越大所以需要切割）, 若 npm 不通请使用代理；
+* pm2-logrotate 默认配置：
+  > 日志单个文件限制大小为 10M, 超过则被切割
+  > 日志文件数限制 30 个, 超过则被删除
+  > 切割出来的日志文件命名格式为 'outerr__YYYY-MM-DD_HH-mm-ss.log' 
+  > 日志会在每日凌晨 0 点 0 分 根据上一条命名规则执行切割
+
 
 ## 目录结构说明
 
