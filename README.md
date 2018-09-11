@@ -17,8 +17,8 @@ or
 ``` bash
 npx enode-cli <folder name>
 ```
-*([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher
-Run ```npm i -g npm``` to update
+*[npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher,
+ run ```npm i -g npm``` to update
 
 ## Getting Start
 
