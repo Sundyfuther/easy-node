@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "author": "liuyuan",
   "scripts": {
-    "start": "node ./bin/initLogrotate.js && pm2 start pm2.config.js",
+    "start": "npm run init:log && npm run start:dev",
+    "start:dev": "pm2 start pm2.config.js",
     "start:test": "pm2 start pm2.config.js --env test",
     "start:prd": "pm2 start pm2.config.js --env prd",
     "start:dr": "pm2 start pm2.config.js --env dr",
@@ -11,6 +12,7 @@
     "pm2:update": "pm2 update",
     "logs": "pm2 logs",
     "ls": "pm2 list",
+    "init:log": "node ./bin/initLogrotate.js",
     "i:log": "pm2 install pm2-logrotate",
     "uni:log": "pm2 uninstall pm2-logrotate",
     "debug": "npm run clean && node bin/debug",

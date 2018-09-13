@@ -5,11 +5,15 @@ var chalk = require('chalk')
 var pm2LogrotatePath = `${$HOME}/.pm2/modules/pm2-logrotate`
 
 if (!fs.existsSync(pm2LogrotatePath)) {
-  initLogrotate()
-}
-
-if (fs.existsSync(pm2LogrotatePath) && !fs.existsSync(`${pm2LogrotatePath}/node_modules`)) {
-  unInstallLogrotate()
+  try {
+    initLogrotate()
+  } catch (error) {
+    unInstallLogrotate()
+  }
+} else {
+  if (!fs.existsSync(`${pm2LogrotatePath}/node_modules`) || !fs.existsSync(`${pm2LogrotatePath}/etc`)) {
+    unInstallLogrotate()
+  }
 }
 
 function initLogrotate () {
@@ -31,7 +35,8 @@ function initLogrotate () {
 }
 
 function unInstallLogrotate () {
-  console.log(chalk.bold.red('[error] ') + 'with module ' + chalk.bold.red('pm2-logrotate') + ' reset...')
+  console.log(chalk.bold.red('[ERROR] ') + 'in ' + chalk.bold.green('pm2-logrotate') + ' ,reset...')
+  console.log(chalk.bold.green('It takes some time. Please be patient...'))
   var unInstalInstance = spawn('npm', ['run', ' uni:log'], {
     stdio: 'inherit',
     env: process.env,
