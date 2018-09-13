@@ -41,7 +41,7 @@ build/Release
 
 test.js
 
-src/config/*
+# src/config/*
 !src/config/index.js
 !src/config/default.js.idea
 
